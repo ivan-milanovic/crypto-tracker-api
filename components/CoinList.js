@@ -1,5 +1,23 @@
-export default function CryptoList() {
+import Coins from "./Coins";
+
+export default function CoinList({filteredCoins}) {
     return (
-        <></>
+        <>
+            {filteredCoins.map(coin => {
+                return (
+                    <Coins
+                        key={coin.id}
+                        name={coin.name}
+                        id={coin.id}
+                        price={coin.current}
+                        symbol={coin.symbol}
+                        marketCap={coin.market_cap}
+                        volume={coin.total_volume}
+                        image={coin.image}
+                        priceChange={coin.market_cap_change_percentage_24h}
+                    />
+                )
+            })}
+        </>
     )
 }
